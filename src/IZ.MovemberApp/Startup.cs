@@ -23,7 +23,7 @@ namespace IZ.MovemberApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //rabarber
             services.AddMvc();
             // Register Entity Framework
             // Register Entity Framework
