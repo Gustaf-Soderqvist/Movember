@@ -6,9 +6,8 @@ namespace IZ.MovemberApp.Models
 {
     public class IzMovemberContext : DbContext
     {
-        public DbSet<Post> Post { get; set; }
-        public DbSet<Author> Authors { get; set; }
 
+        public DbSet<Post> Post { get; set; }
 
     }
 

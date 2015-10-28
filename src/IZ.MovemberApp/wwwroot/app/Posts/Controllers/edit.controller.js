@@ -5,13 +5,14 @@
         .module('movember')
         .controller('EditPostController', editPost);
 
-    editPost.$inject = ['posts', 'stateParams', '$state'];
+    editPost.$inject = ['posts', '$stateParams', '$state'];
 
     function editPost(posts, $stateParams, $state) {
 
         var vm = this;
         vm.post = {};
 
+        vm.post.Id = '';
         vm.post.Name = '';
         vm.post.Description = '';
         vm.post.Image = null;
@@ -26,7 +27,7 @@
         }
 
         function remove(post) {
-            posts.remove(post.id).then(function() {
+            posts.remove(post.Id).then(function() {
                 $state.go("list");
             });
         }

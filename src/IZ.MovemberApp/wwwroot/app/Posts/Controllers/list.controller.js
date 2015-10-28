@@ -16,7 +16,7 @@
         vm.new = newPost;
 
         function goto(post) {
-            $state.go('edit', { id: post.id });
+            $state.go('edit', { id: post.Id });
 
         };
 

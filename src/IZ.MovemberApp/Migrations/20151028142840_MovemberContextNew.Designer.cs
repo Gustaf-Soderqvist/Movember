@@ -8,9 +8,10 @@ using IZ.MovemberApp.Models;
 namespace IZ.MovemberApp.Migrations
 {
     [DbContext(typeof(IzMovemberContext))]
-    partial class IzMovemberContextModelSnapshot : ModelSnapshot
+    [Migration("20151028142840_MovemberContextNew")]
+    partial class MovemberContextNew
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .Annotation("ProductVersion", "7.0.0-beta8-15964")

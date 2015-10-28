@@ -31,7 +31,7 @@
         }
 
         function get(id) {
-                return $http.get('/api/post' + id).then(function(res, status, headers, config) {
+                return $http.get('/api/post/' + id).then(function(res, status, headers, config) {
                     return res.data;
                 });
             }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using IZ.MovemberApp.Models;
 using Microsoft.Data.Entity.Storage;
+using IZ.MovemberApp.Repository;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,66 +14,41 @@ namespace IZ.MovemberApp.API
     [Route("api/[controller]")]
     public class PostController : Controller
     {
-        private readonly IzMovemberContext _dbContext;
+        private readonly IPostRebo _postRebo;
 
-        public PostController(IzMovemberContext dbContext)
+        public PostController(IPostRebo postRebo)
         {
-            _dbContext = dbContext;
+            _postRebo = postRebo;
         }
-        // GET: api/values
+
         [HttpGet]
         public IEnumerable<Post> Get()
         {
-            return _dbContext.Post;
+            return _postRebo.GetAll();
         }
 
-        [HttpGet("{id:int}")]
-        public IActionResult Get(int id)
+        [HttpGet("{id}")]
+        public Post Get(long id)
         {
-            var post = _dbContext.Post.FirstOrDefault(m => m.Id == id);
-            if (post == null)
-            {
-                return new HttpNotFoundResult();
-            }
-            return new ObjectResult(post);
+            return _postRebo.Get(id);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Post post, Author author)
+        public void Post(long id, [FromBody] Post value)
         {
-            try
-            {
-                if (post.Id == 0)
-                {
-                    _dbContext.Post.Add(post);
-                    _dbContext.SaveChanges();
-                    return new ObjectResult(post);
-                }
-                var original = _dbContext.Post.FirstOrDefault(m => m.Id == post.Id);
-                original.Name = post.Name;
-                original.Description = post.Description;
-                original.Image = post.Image;
-                original.Author.FirstName = post.Author.FirstName;
-                original.Author.LastName = post.Author.LastName;
-
-                _dbContext.SaveChanges();
-                return new ObjectResult(original);
-            }
-            catch (DataStoreException)
-            {
-                ModelState.AddModelError(string.Empty, "Unable to save changes");
-            }
-            return new ObjectResult(post);
+            _postRebo.Post(value);
         }
-             
 
-        [HttpDelete("{id:int}")]
-        public IActionResult Delete(int id)
+        [HttpPut("{id}")]
+        public void Put(long id, [FromBody] Post value)
         {
-            var post = _dbContext.Post.FirstOrDefault(m => m.Id == id);
-            _dbContext.Post.Remove(post);
-            _dbContext.SaveChanges();
-            return new HttpStatusCodeResult(200);
+            _postRebo.Put(id,value);
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(long id)
+        {
+            _postRebo.Delete(id);
         }
     }
 }

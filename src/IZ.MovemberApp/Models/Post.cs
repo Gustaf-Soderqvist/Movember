@@ -14,10 +14,6 @@ namespace IZ.MovemberApp.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
-
-        public int AuthorId { get; set; }
-
-        // Navigation property
-        public Author Author { get; set; }
     }
+
 }
