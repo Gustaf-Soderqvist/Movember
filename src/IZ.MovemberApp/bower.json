@@ -1,0 +1,28 @@
+{
+  "name": "IZMovemberApp",
+  "private": true,
+  "version": "0.1.0",
+  "authors": [ "Soderqvist" ],
+  "dependencies": {
+    "angular": "^1.4.4",
+    "angular-ui-router": "~0.2.15",
+    "angular-mocks": "^1.4.4",
+    "angular-animate": "^1.4.4",
+    "bootstrap": "^3.3.5"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.4"
+  },
+  "exportsOverride": {
+    "jasmine": {
+      "": "lib/jasmine-core/jasmine.js"
+    },
+    "bootstrap": {
+      "": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ],
+      "../fonts": "fonts/*"
+    }
+  }
+}

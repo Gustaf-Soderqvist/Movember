@@ -1,0 +1,12 @@
+﻿{
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=GUSTAFSODERQVIS\\SQLEXPRESS;Database=IZMovemberDB;Trusted_Connection=True;"
+    }
+  },
+    "EntityFramework": {
+        "IzMovemberContext": {
+            "ConnectionStringKey": "Data:DefaultConnection:ConnectionString"
+        }
+    }
+}

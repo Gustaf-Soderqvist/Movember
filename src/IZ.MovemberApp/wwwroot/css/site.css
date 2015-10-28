@@ -1,0 +1,17 @@
+﻿.JumboTron-background {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,168,76,1)), color-stop(100%,rgba(255,123,13,1))); 
+}
+
+.IZ-Text-Background {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,183,234,1)), color-stop(100%,rgba(0,158,195,1)));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.IZ-JumpoTron-Text {
+    color: whitesmoke;
+}
+
+.IZ-Underline-Text-Jump {
+    color: gray;
+}
