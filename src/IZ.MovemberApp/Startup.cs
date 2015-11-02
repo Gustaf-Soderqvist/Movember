@@ -4,21 +4,25 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.Configuration;
 using Microsoft.Data.Entity;
 using IZ.MovemberApp.Models;
+using IZ.MovemberApp.Models.SampleData;
 using IZ.MovemberApp.Repository;
 using Microsoft.Dnx.Runtime;
+using Microsoft.Framework.Logging;
 
 namespace IZ.MovemberApp
 {
     public class Startup
     {
-        public Startup(IApplicationEnvironment appEnv)
+        public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
             // Setup configuration sources.
             var builder = new ConfigurationBuilder()
                .SetBasePath(appEnv.ApplicationBasePath)
                .AddJsonFile("config.json")
-               .AddEnvironmentVariables();
+               .AddEnvironmentVariables()
+               .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
 
+            builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
 
@@ -29,6 +33,7 @@ namespace IZ.MovemberApp
             var connection = Configuration["Data:DefaultConnection:ConnectionString"];
             services.AddMvc();
             services.AddScoped<IPostRebo, PostRebo>();
+            services.AddScoped<IUserRepo, UserRepo>();
             // Register Entity Framework
             services.AddEntityFramework()
                 .AddSqlServer()
@@ -39,20 +44,17 @@ namespace IZ.MovemberApp
 
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerfactory)
         {
+            // Add the console logger.
+            loggerfactory.AddConsole(minLevel: LogLevel.Warning);
 
             app.UseIISPlatformHandler();
             //app.UseIdentity();
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseExceptionHandler("/Home/Error");
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
 
             //Add sample Data
             SampleData.Initialize(app.ApplicationServices);

@@ -1,6 +1,14 @@
 ﻿module.exports = function (grunt) {
-    var libs = ['wwwroot/lib/angular/angular.js', 'wwwroot/lib/angular-ui-router/angular-ui-router.js', 'wwwroot/lib/angular-animate/angular-animate.js'];
-    var appFiles = ['wwwroot/app/*.module.js', 'wwwroot/app/*.directive.js', 'wwwroot/app/*.controller.js', 'wwwroot/app/Posts/Services/posts.service.js'];
+    var libs = ['wwwroot/lib/angular/angular.js',
+                'wwwroot/lib/angular-ui-router/angular-ui-router.js',
+                'wwwroot/lib/angular-animate/angular-animate.js'];
+
+    var appFiles = ['wwwroot/app/*.module.js',
+                    'wwwroot/app/Posts/**/*.directive.js',
+                    'wwwroot/app/*.controller.js',
+                    'wwwroot/app/Posts/Services/posts.service.js',
+                    'wwwroot/app/Posts/Filter/date.filter.js'];
+
     var configs = ['wwwroot/app/Posts/Services/routes.js'];
     var testFiles = ['wwwroot/lib/angular-mocks/angular-mocks.js', 'tests/**/*.spec.js'];
 

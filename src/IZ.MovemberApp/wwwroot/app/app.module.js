@@ -3,6 +3,7 @@
 
     angular.module('movember', [
         'ui.router',
-        'ngAnimate'
+        'ngAnimate',
+        'ngCookies'
     ]);
 })();

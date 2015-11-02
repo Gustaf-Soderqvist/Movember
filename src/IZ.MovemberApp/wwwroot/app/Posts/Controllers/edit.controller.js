@@ -15,8 +15,9 @@
         vm.post.Id = '';
         vm.post.Name = '';
         vm.post.Description = '';
-        vm.post.Image = null;
-
+        vm.post.Image = '';
+        vm.post.fileName = null;
+        vm.post.Date = '';
         vm.save = save;
         vm.remove = remove;
 

@@ -1,23 +1,19 @@
 ﻿<h2>
     Posts<button type="button" class="btn btn-link btn-lg" ng-click="vm.new()">+</button>
 </h2>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="post in vm.posts" ng-click="vm.goto(post)">
-            <!--<th scope="row">
-                <div class="list-img">
-                    <img ng-src={{post.image}} class="img-responsive " />
-                </div>
-            </th>-->
-            <td>{{post.Name}}</td>
-            <td>{{post.Description}}</td>
 
-        </tr>
-    </tbody>
-</table>
+<div class="media" ng-repeat="post in vm.posts" ng-click="vm.goto(post)">
+    <div class="media-left media-middle">
+        <div  class="list-img" >
+            <img ng-src={{post.Image}} class="img-responsive">
+        </div>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">{{post.Name}}</h4>
+        <p>{{post.Description}}</p>
+        <p> {{post.Date | date: "yyyy-MM-dd"}}</p>
+    </div>
+</div>
+
+
+

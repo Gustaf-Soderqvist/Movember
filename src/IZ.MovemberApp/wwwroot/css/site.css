@@ -1,5 +1,20 @@
-﻿.JumboTron-background {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,168,76,1)), color-stop(100%,rgba(255,123,13,1))); 
+﻿.jumbotronIzMovember {
+    position: relative;
+    background:url("img\rsz_11rsz_1iz_full_hd_1920x1080.png");
+    margin-top: -30px;
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-radius: 0;
+    text-align: center;
+    color: #fcf1de;
+    font-size: 175%
+}
+
+
+.JumboTron-background {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(255, 255, 255)), color-stop(100%, rgba(138, 125, 125, 0.13)));
 }
 
 .IZ-Text-Background {
@@ -15,3 +30,68 @@
 .IZ-Underline-Text-Jump {
     color: gray;
 }
+
+.flex-row {
+  display: flex;
+  align-items: stretch;
+}
+.drop-parent {
+  display: flex;
+  align-items: stretch;
+}
+[file-dropzone] {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+[file-dropzone] img {
+  width: 100%;
+}
+[file-dropzone] img[src] {
+  height: 100%;
+}
+[file-dropzone]::before {
+  content: 'Drop image here';
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  z-index: -1;
+  display: block;
+  height: 16px;
+  text-align: center;
+  margin-top: -8px;
+}
+.table-hover > tbody > tr:hover {
+  cursor: pointer;
+}
+.list-img {
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 35px;
+}
+.list-img img {
+  margin: -10px 0 0 0;
+}
+[ui-view="main"].ng-enter,
+[ui-view="main"].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+[ui-view="main"].ng-enter {
+  opacity: 0;
+}
+[ui-view="main"].ng-enter-active {
+  opacity: 1;
+}
+[ui-view="main"].ng-leave {
+  opacity: 1;
+}
+[ui-view="main"].ng-leave-active {
+  opacity: 0;
+}
+

@@ -8,9 +8,10 @@ using IZ.MovemberApp.Models;
 namespace IZ.MovemberApp.Migrations
 {
     [DbContext(typeof(IzMovemberContext))]
-    partial class IzMovemberContextModelSnapshot : ModelSnapshot
+    [Migration("20151029153852_manyratings")]
+    partial class manyratings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .Annotation("ProductVersion", "7.0.0-beta8-15964")
@@ -42,18 +43,6 @@ namespace IZ.MovemberApp.Migrations
                     b.Property<int>("PostId");
 
                     b.HasKey("RateId");
-                });
-
-            modelBuilder.Entity("IZ.MovemberApp.Models.User", b =>
-                {
-                    b.Property<Guid>("userId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("userId");
                 });
 
             modelBuilder.Entity("IZ.MovemberApp.Models.Rating", b =>
