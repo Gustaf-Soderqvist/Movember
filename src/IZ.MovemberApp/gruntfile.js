@@ -6,8 +6,8 @@
     var appFiles = ['wwwroot/app/*.module.js',
                     'wwwroot/app/Posts/**/*.directive.js',
                     'wwwroot/app/*.controller.js',
-                    'wwwroot/app/Posts/Services/posts.service.js',
-                    'wwwroot/app/Posts/Filter/date.filter.js'];
+                    'wwwroot/app/Posts/**/*.service.js',
+                    'wwwroot/app/Posts/**/*.filter.js'];
 
     var configs = ['wwwroot/app/Posts/Services/routes.js'];
     var testFiles = ['wwwroot/lib/angular-mocks/angular-mocks.js', 'tests/**/*.spec.js'];

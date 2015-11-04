@@ -1,20 +1,11 @@
-﻿.jumbotronIzMovember {
+﻿.LogoInfoZone {
     position: relative;
-    background:url("img\rsz_11rsz_1iz_full_hd_1920x1080.png");
-    margin-top: -30px;
-    margin-bottom: 0;
-    border-bottom: 0;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    border-radius: 0;
-    text-align: center;
-    color: #fcf1de;
-    font-size: 175%
+    background:url("img\iz_logo_footer2.png");
 }
 
 
-.JumboTron-background {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(255, 255, 255)), color-stop(100%, rgba(138, 125, 125, 0.13)));
+.IZ-background {
+    background: rgba(15,86,102,0.95);
 }
 
 .IZ-Text-Background {
@@ -95,3 +86,32 @@
   opacity: 0;
 }
 
+.navbar-brand-IZ{
+    float: left;
+    height: 50px;
+    padding: 5px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+#wrap {
+      min-height: 100%;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: rgba(15,86,102,0.95);
+}

@@ -23,9 +23,9 @@ namespace IZ.MovemberApp.Repository
             _logger.LogInformation("Getting all users");
             return _dbContext.User.ToList();
         }
-        public User Get(Guid id)
+        public User Get(string email)
         {
-            return _dbContext.User.First(t => t.userId == id);
+            return _dbContext.User.FirstOrDefault(t => t.Email == email);
         }
         [HttpPost]
         public void Post([FromBody] User user)

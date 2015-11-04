@@ -1,7 +1,11 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('movember').config(function ($stateProvider, $urlRouterProvider) {
+    angular.module('movember')
+       
+        .config(function ($stateProvider, $urlRouterProvider)
+
+        {
         // for any unmatched url, redirect to state/1
         $urlRouterProvider.otherwise("/");
 
@@ -10,6 +14,8 @@
             .state('list', {
                 url: "/",
 
+
+          /* List > Posts */
                 views: {
                     'main':
                     {
@@ -26,6 +32,23 @@
                     }
                 }
             })
+         /* Login >  */
+              .state('login', {
+                  url: "/login",
+
+                  views: {
+                      'main':
+                      {
+                          templateUrl: "partials/login.html",
+                          controller: "LoginController as vm",
+                      },
+                      'title': {
+                          template: 'Login'
+                      }
+                  }
+              })
+        
+           /* New > Post */
             .state('new', {
                 url: "/new",
                 views: {
@@ -39,6 +62,7 @@
                     }
                 }
             })
+            /* Edit > Post */
             .state('edit', {
                 url: "/edit/:id",
                 views: {
@@ -53,4 +77,6 @@
                 }
             });
     });
+   
+
 })();

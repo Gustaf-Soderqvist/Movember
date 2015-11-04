@@ -8,7 +8,7 @@ namespace IZ.MovemberApp.Repository
     public interface IUserRepo
     {
         void Delete(Guid id);
-        User Get(Guid id);
+        User Get(string email);
         List<User> GetAll();
         void Post(User user);
     }

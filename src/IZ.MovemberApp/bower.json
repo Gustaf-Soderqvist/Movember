@@ -2,14 +2,17 @@
   "name": "IZMovemberApp",
   "private": true,
   "version": "0.1.0",
-  "authors": [ "Soderqvist" ],
+  "authors": [
+    "Soderqvist"
+  ],
   "dependencies": {
     "angular": "^1.4.4",
     "angular-ui-router": "~0.2.15",
     "angular-mocks": "^1.4.4",
     "angular-animate": "^1.4.4",
     "angular-cookies": "1.4.7",
-    "bootstrap": "^3.3.5"
+    "bootstrap": "^3.3.5",
+    "angular-flexslider": "1.3.2"
   },
   "devDependencies": {
     "jasmine": "^2.3.4"
@@ -25,5 +28,8 @@
       ],
       "../fonts": "fonts/*"
     }
+  },
+  "resolutions": {
+    "angular": ">= 1.0.8"
   }
 }

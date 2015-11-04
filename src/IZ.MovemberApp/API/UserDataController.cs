@@ -27,10 +27,10 @@ namespace IZ.MovemberApp.API
             return _userRebo.GetAll();
         }
 
-        [HttpGet("{userId}")]
-        public User Get(Guid id)
+        [HttpGet("{Email}")]
+        public User Get(string email)
         {
-            return _userRebo.Get(id);
+            return _userRebo.Get(email);
         }
         [HttpPost]
         public void Post(Guid id, [FromBody] User value)

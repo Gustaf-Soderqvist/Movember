@@ -3,40 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
-
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+using IZ.MovemberApp.Repository;
+using Newtonsoft.Json;
+using Microsoft.AspNet.Http;
 
 namespace IZ.MovemberApp.API
 {
     [Route("api/[controller]")]
     public class UserStoreController : Controller
     {
-        // GET: api/values
-        [HttpPost("{email}")]
-        public HttpStatusCodeResult SignIn(string email)
+        private readonly IUserRepo _userRebo;
+
+        public UserStoreController(IUserRepo userRebo)
         {
-            //user  = context.users.single(email)
-            //if(user == null)
-            if (false)
+            _userRebo = userRebo;
+        }
+
+
+        [HttpGet("{email}")]
+        public ActionResult SignIn(string email)
+        {
+            var user = _userRebo.Get(email);
+            if (user == null)
             {
-                return new HttpUnauthorizedResult();
+                return new HttpNotFoundObjectResult("You don't work here motherfucker!");
             }
-         
-            //skapa cookie
-            HttpContext.Response.Cookies.Append("user", email);
+
+            //Create cookie
+            Response.Cookies.Append("user", user.Email);
             return new HttpOkResult();
         }
 
-        // GET api/values/5
-        [HttpPost()]
+
+        [HttpPost("signout")]
         public HttpStatusCodeResult SignOut()
         {
-            if (HttpContext.Request.Cookies.ContainsKey("user"))
-            {
-                HttpContext.Response.Cookies.Delete("user");
+            if (Request.Cookies.ContainsKey("user"))
+            {               
+                var options = new CookieOptions();
+                options.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Append("user", "", options);
+              //  HttpContext.Response.Cookies.Delete("user");
             }
 
             return new HttpOkResult();
-        }       
+        }
     }
 }
