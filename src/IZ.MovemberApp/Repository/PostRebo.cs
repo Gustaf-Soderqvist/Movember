@@ -28,7 +28,7 @@ namespace IZ.MovemberApp.Repository
 
         public Post Get(long id)
         {
-            return _dbContext.Post.First(t => t.Id == id);
+            return _dbContext.Post.FirstOrDefault(t => t.Id == id);
         }
 
         [HttpPost]

@@ -26,7 +26,7 @@ namespace IZ.MovemberApp.API
             var user = _userRebo.Get(email);
             if (user == null)
             {
-                return new HttpNotFoundObjectResult("You don't work here motherfucker!");
+                return new HttpNotFoundObjectResult("You have no power here! Only username@infozone.se is valid here");
             }
 
             //Create cookie

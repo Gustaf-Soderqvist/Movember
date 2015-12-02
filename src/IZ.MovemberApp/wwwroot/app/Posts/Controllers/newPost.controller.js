@@ -17,6 +17,7 @@
         vm.post.Image = null;
         vm.post.fileName = null;
         vm.post.Date = '';
+
         vm.save = save;
 
         function save(post) {

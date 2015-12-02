@@ -57,15 +57,15 @@
   cursor: pointer;
 }
 .list-img {
-  width: 250px;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 35px;
+  width:800px;
+  height:600px;
+  overflow:hidden;
 }
 .list-img img {
   margin: -10px 0 0 0;
+
 }
-[ui-view="main"].ng-enter,
+/*[ui-view="main"].ng-enter,
 [ui-view="main"].ng-leave {
   position: absolute;
   left: 0;
@@ -84,7 +84,7 @@
 }
 [ui-view="main"].ng-leave-active {
   opacity: 0;
-}
+}*/
 
 .navbar-brand-IZ{
     float: left;
@@ -115,3 +115,15 @@ body {
   height: 60px;
   background-color: rgba(15,86,102,0.95);
 }
+.flex-caption {
+  width: 100%;
+  padding: 2%;
+  left: 0;
+  bottom: 0;
+  background:rgba(15,86,102,0.95);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+  font-size: 14px;
+  line-height: 18px;
+}
+

@@ -20,11 +20,18 @@
         function link(scope, element, attrs) {
             var checkSize, isTypeValid, processDragOverOrEnter, validMimeTypes;
 
+
+            var getDataTransfer = function (event) {
+
+                return event.dataTransfer || event.originalEvent.dataTransfer;
+
+            };
+
             processDragOverOrEnter = function (event) {
                 if (event != null) {
                     event.preventDefault();
                 }
-                event.dataTransfer.effectAllowed = 'copy';
+                getDataTransfer( event).effectAllowed = 'copy';
                 return false;
             };
 
@@ -65,7 +72,7 @@
                         });
                     }
                 };
-                file = event.dataTransfer.files[0];
+                file = getDataTransfer(event) ? getDataTransfer(event).files[0] : event.target.files[0];
                 name = file.name;
                 type = file.type;
                 size = file.size;

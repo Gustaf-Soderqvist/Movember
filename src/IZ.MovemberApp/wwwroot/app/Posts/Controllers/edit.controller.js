@@ -32,7 +32,6 @@
                 $state.go("list");
             });
         }
-
         activate();
 
         function activate() {

@@ -75,7 +75,35 @@
                         template: 'Edit post'
                     }
                 }
-            });
+            })
+               /* PWinners view */
+            .state('winner', {
+                url: "/Winners",
+                views: {
+                    'main':
+                    {
+                        templateUrl: "partials/pwView.html",
+                        controller: "MenuController as vm"
+                    },
+                    'title': {
+                        template: 'Previous winners'
+                    }
+                }
+            })
+            /* PWinners view */
+        .state('about', {
+            url: "/About",
+            views: {
+                'main':
+                {
+                    templateUrl: "partials/about.html",
+                    controller: "MenuController as vm"
+                },
+                'title': {
+                    template: 'About'
+                }
+            }
+        });
     });
    
 

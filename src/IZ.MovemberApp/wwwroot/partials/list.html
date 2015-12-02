@@ -1,19 +1,17 @@
 ﻿<h2>
-    Posts<button type="button" class="btn btn-link btn-lg" ng-click="vm.new()">+</button>
+    Add a new image<button type="button" class="btn btn-link btn-lg" ng-click="vm.new()">+</button>
 </h2>
 <p class="lead IZ-JumpoTron-Text" ng-model="vm.username"></p>
-<div class="media" ng-repeat="post in vm.posts" ng-click="vm.goto(post)">
-    <div class="media-left media-middle">
-        <div  class="list-img" >
-            <img ng-src={{post.Image}} class="img-responsive">
-        </div>
-    </div>
-    <div class="media-body">
-        <h4 class="media-heading">{{post.Name}}</h4>
-        <p>{{post.Description}}</p>
-        <p> {{post.Date | date: "yyyy-MM-dd"}}</p>
-    </div>
-</div>
 
+<div ng-controller="EditPostController">  
+    <flex-slider slide="post in vm.posts track by $index" animation="slide">
 
+            <li>
+                <img ng-src={{post.Image}} class="img-responsive">
+                <p class="flex-caption">{{post.Name}} <button type="button" class="btn btn-default btn-sm pull-right">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                </button></p>
+            </li>
 
+    </flex-slider>
+ </div>
